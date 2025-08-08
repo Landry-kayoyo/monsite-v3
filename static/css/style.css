@@ -1,0 +1,65 @@
+/* Styles personnalisés pour home.html */
+
+.article-card {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+.article-card:hover {
+  filter: brightness(1.2);
+  transform: translateY(-5px);
+}
+
+.article-content {
+  background: rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  z-index: 2;
+}
+
+.overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
+  z-index: 1;
+}
+
+/* Prevent carousel background images from overflowing */
+.container.position-relative {
+  overflow: hidden;
+}
+
+@media (max-width: 576px) {
+  .container.py-5.position-relative {
+    min-height: 220px;
+    max-height: 320px;
+  }
+  .bg-dark.bg-opacity-50 {
+    padding: 2rem 1rem !important;
+  }
+  h1.display-4 {
+    font-size: 2rem;
+  }
+  p.lead {
+    font-size: 1rem;
+  }
+  .article-card {
+    height: 220px !important;
+  }
+}
+
+footer a.text-white:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+vue-count {
+  font-weight: bold;
+  color: #555;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.vue-count i {
+  color: #007bff; /* couleur de l'icône */
+  font-size: 18px;
+}

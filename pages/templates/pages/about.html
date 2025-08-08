@@ -1,0 +1,263 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}À propos | Landry Kay - Expert en Infrastructure & Développement{% endblock %}
+{% block head %}
+<style>
+    .skill-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .network-icon {
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #3a86ff, #8338ec);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, #3a86ff, #8338ec);
+    }
+    .timeline-item {
+        position: relative;
+        padding-bottom: 30px;
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 5px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #3a86ff;
+        border: 3px solid white;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-5 text-center mb-4 mb-lg-0">
+        <img src="{% static 'images/profil.jpg' %}" alt="Landry Kayoyo"
+             class="img-fluid rounded-circle shadow-lg" style="max-width: 280px; border: 5px solid white;">
+      </div>
+      <div class="col-lg-7">
+        <h1 class="display-5 fw-bold mb-3">Landry Kayoyo</h1>
+        <h2 class="text-gradient-primary mb-4">Administrateur Réseau & Systèmes | Développeur Full-Stack</h2>
+       
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+            <i class="bi bi-shield-lock me-1"></i> Sécurité Réseau
+          </span>
+          <span class="badge bg-success bg-opacity-10 text-success py-2 px-3">
+            <i class="bi bi-code-square me-1"></i> Développement Web
+          </span>
+          <span class="badge bg-info bg-opacity-10 text-info py-2 px-3">
+            <i class="bi bi-cloud me-1"></i> Infrastructure Cloud
+          </span>
+        </div>
+       
+        <p class="lead mb-4">
+          Expert en infrastructure réseau avec plus de 8 ans d'expérience dans la conception, l'implémentation et la sécurisation de systèmes informatiques complexes.
+        </p>
+        <p>
+          Passionné par l'intersection entre les réseaux et le développement, je crée des solutions techniques robustes qui combinent performance, sécurité et évolutivité.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5">
+  <div class="container">
+    <!-- Double Expertise -->
+    <div class="row mb-5">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card h-100 skill-card">
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <i class="bi bi-diagram-3 network-icon"></i>
+            </div>
+            <h3 class="h4 text-center mb-3">Expertise Réseau</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Architecture réseau avancée</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Pare-feu FortiGate, Cisco ASA</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Virtualisation avec GNS3/VMware</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Windows/Linux Server</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Supervision Nagios/Zabbix</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Politiques de sécurité et conformité</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col-md-6">
+        <div class="card h-100 skill-card">
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <i class="bi bi-code-slash" style="font-size: 2.5rem; color: #8338ec;"></i>
+            </div>
+            <h3 class="h4 text-center mb-3">Expertise Développement</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Django/Python (Expert)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Node.js/Express</li>;
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> React/React Native</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Bases de données SQL/NoSQL</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> APIs RESTful</li>
+              <li><i class="bi bi-check-circle-fill text-primary me-2"></i> DevOps CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Timeline Expérience Pro -->
+    <div class="mb-5">
+      <h3 class="mb-4 text-center"><i class="bi bi-briefcase-fill me-2"></i>Parcours Professionnel</h3>
+      <div class="timeline">
+        <div class="timeline-item mb-4">
+          <h4 class="h5">Administrateur Infrastructure - Entreprise XYZ</h4>
+          <p class="text-muted mb-1">2020 - Présent</p>
+          <ul>
+            <li>Migration complète vers l'infrastructure cloud hybride</li>
+            <li>Mise en place de politiques de sécurité conformes au RGPD</li>
+            <li>Automatisation des déploiements avec Ansible</li>
+          </ul>
+        </div>
+       
+        <div class="timeline-item mb-4">
+          <h4 class="h5">Consultant Réseau Senior - Société ABC</h4>
+          <p class="text-muted mb-1">2016 - 2020</p>
+          <ul>
+            <li>Conception d'architecture réseau pour clients entreprises</li>
+            <li>Formation des équipes techniques</li>
+            <li>Audits de sécurité et recommandations</li>
+          </ul>
+        </div>
+       
+        <div class="timeline-item">
+          <h4 class="h5">Technicien Réseau - Startup TECH</h4>
+          <p class="text-muted mb-1">2013 - 2016</p>
+          <ul>
+            <li>Support technique niveau 2/3</li>
+            <li>Gestion du parc informatique</li>
+            <li>Premières expériences en développement interne</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Certifications -->
+    <div class="mb-5">
+      <h3 class="mb-4 text-center"><i class="bi bi-award-fill me-2"></i>Certifications</h3>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <img src="{% static 'images/ccna.png' %}" alt="CCNA" style="height: 60px;" class="mb-3">
+              <h5 class="h6">CCNA Routing & Switching</h5>
+              <p class="small text-muted">Cisco - 2018</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <img src="{% static 'images/fortinet.png' %}" alt="NSE4" style="height: 60px;" class="mb-3">
+              <h5 class="h6">NSE 4 - FortiGate Security</h5>
+              <p class="small text-muted">Fortinet - 2019</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <img src="{% static 'images/aws.png' %}" alt="AWS" style="height: 60px;" class="mb-3">
+              <h5 class="h6">AWS Certified Solutions Architect</h5>
+              <p class="small text-muted">Amazon Web Services - 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Philosophie -->
+    <div class="bg-light p-5 rounded-4 mb-5">
+      <h3 class="mb-4 text-center"><i class="bi bi-lightbulb-fill me-2"></i>Ma Philosophie</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex mb-3">
+            <div class="me-3 text-primary">
+              <i class="bi bi-shield-check fs-3"></i>
+            </div>
+            <div>
+              <h4 class="h5">Sécurité d'abord</h4>
+              <p class="mb-0">Toute solution technique doit intégrer la sécurité dès sa conception (Security by Design).</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex mb-3">
+            <div class="me-3 text-primary">
+              <i class="bi bi-arrow-repeat fs-3"></i>
+            </div>
+            <div>
+              <h4 class="h5">Apprentissage continu</h4>
+              <p class="mb-0">Le domaine IT évolue constamment, je consacre 10h/semaine à me former sur les nouvelles technologies.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex mb-3">
+            <div class="me-3 text-primary">
+              <i class="bi bi-people-fill fs-3"></i>
+            </div>
+            <div>
+              <h4 class="h5">Partage des connaissances</h4>
+              <p class="mb-0">J'anime régulièrement des workshops pour partager mon expertise avec la communauté tech.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex">
+            <div class="me-3 text-primary">
+              <i class="bi bi-tools fs-3"></i>
+            </div>
+            <div>
+              <h4 class="h5">Solutions pragmatiques</h4>
+              <p class="mb-0">Je privilégie les approches simples et efficaces plutôt que les solutions trop complexes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA Contact -->
+    <div class="text-center py-4 bg-primary bg-opacity-10 rounded-4">
+      <h3 class="mb-3">Travaillons ensemble</h3>
+      <p class="lead mb-4">Vous avez un projet nécessitant une expertise réseau et développement ?</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="{% url 'contact' %}" class="btn btn-primary px-4 py-2">
+          <i class="bi bi-envelope-fill me-2"></i> Contactez-moi
+        </a>
+        <a href="https://calendly.com/landrykay" class="btn btn-outline-primary px-4 py-2" target="_blank">
+          <i class="bi bi-calendar-check me-2"></i> Planifier un appel
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,269 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}LandKay - Solutions Digitales{% endblock %}</title>
+    <!-- Google Fonts - Montserrat pour une typographie moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+   
+    <!-- Bootstrap CSS local -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+       
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+        }
+       
+        /* Logo stylisé avec CSS */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+       
+        .logo span {
+            position: relative;
+            display: inline-block;
+        }
+       
+        .logo .land {
+            color: var(--primary-color);
+        }
+       
+        .logo .kay {
+            color: var(--secondary-color);
+        }
+       
+        .logo .kay::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 3px;
+        }
+       
+        .navbar {
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2c3e50 100%);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+        }
+       
+        .navbar-brand .logo {
+            font-size: 1.5rem;
+        }
+       
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+            margin: 0 0.3rem;
+        }
+       
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+       
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+       
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+       
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(58, 134, 255, 0.3);
+        }
+        footer {
+  color: white !important; /* Force la couleur du texte */
+}
+footer a {
+  color: #a0a0ff !important; /* Couleur des liens */
+}
+footer .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important; /* Remplacement du gris */
+}
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<!-- Navigation avec logo stylisé -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <div class="logo">
+        <span class="land">Land</span><span class="kay">Kay</span>
+      </div>
+    </a>
+   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+   
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if request.path == '/' %}active{% endif %}" href="/">
+            <i class="bi bi-house-door me-1"></i> Accueil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if '/blog/' in request.path %}active{% endif %}" href="/blog/">
+            <i class="bi bi-journal-text me-1"></i> Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if '/services_list/' in request.path %}active{% endif %}" href="/services_list/">
+            <i class="bi bi-stack me-1"></i> Solutions
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if '/contact/' in request.path %}active{% endif %}" href="/contact/">
+            <i class="bi bi-envelope me-1"></i> Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3 {% if '/about/' in request.path %}active{% endif %}" href="/about/">
+            <i class="bi bi-info-circle me-1"></i> À propos
+          </a>
+        </li>
+      </ul>
+     
+      <div class="d-flex">
+        <a href="#" class="btn btn-outline-light me-2">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span class="d-none d-lg-inline">Connexion</span>
+        </a>
+        <a href="#" class="btn btn-gradient">
+          <i class="bi bi-person-plus"></i>
+          <span class="d-none d-lg-inline">Essai gratuit</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="container my-5">
+  {% block content %}{% endblock %}
+</main>
+<footer class="bg-dark text-white pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="logo mb-3">
+          <span class="land">Land</span><span class="kay">Kay</span>
+        </div>
+        <p class="small text-muted">Votre partenaire pour des solutions digitales innovantes et performantes.</p>
+        <div class="social-icons mt-3">
+          <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-white me-3"><i class="bi bi-linkedin fs-5"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+        </div>
+      </div>
+     <div class="col-lg-2 col-md-6">
+        <h5 class="fw-bold mb-3">Navigation</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="{% url 'home' %}" class="text-muted text-decoration-none">Accueil</a></li>
+          <li class="mb-2"><a href="{% url 'blog' %}" class="text-muted text-decoration-none">Blog</a></li>
+          <li class="mb-2"><a href="{% url 'services_list' %}" class="text-muted text-decoration-none">Solutions</a></li>
+          <li class="mb-2"><a href="{% url 'about' %}" class="text-muted text-decoration-none">À propos</a></li>
+          <li><a href="{% url 'contact' %}" class="text-muted text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3">Services</h5>
+        <ul class="list-unstyled small text-muted">
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i> Développement Web</li>
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i> Applications Mobiles</li>
+          <li class="mb-2"><i class="bi bi-check-circle me-2"></i> SEO & Marketing Digital</li>
+          <li><i class="bi bi-check-circle me-2"></i> Hébergement Cloud</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h5 class="fw-bold mb-3">Contact</h5>
+        <ul class="list-unstyled small text-muted">
+          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Rue du Digital, 75000 Paris</li>
+          <li class="mb-2"><i class="bi bi-telephone me-2"></i> +33 1 23 45 67 89</li>
+          <li class="mb-2"><i class="bi bi-envelope me-2"></i> contact@landkay.com</li>
+          <li><i class="bi bi-clock me-2"></i> Lun-Ven: 9h-18h</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4 border-secondary">
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start small text-muted">
+        &copy; {% now "Y" %} LandKay. Tous droits réservés.
+      </div>
+      <div class="col-md-6 text-center text-md-end small text-muted">
+        <a href="#" class="text-muted text-decoration-none me-3">Mentions légales</a>
+        <a href="#" class="text-muted text-decoration-none">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<a href="#" class="btn btn-primary btn-lg rounded-circle back-to-top shadow" id="backToTop">
+  <i class="bi bi-arrow-up"></i>
+</a>
+<!-- Bootstrap JS Bundle local -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
+  // Back to top button
+  window.addEventListener('scroll', function() {
+    var backToTop = document.getElementById('backToTop');
+    if (window.pageYOffset > 300) {
+      backToTop.style.opacity = '1';
+      backToTop.style.visibility = 'visible';
+    } else {
+      backToTop.style.opacity = '0';
+      backToTop.style.visibility = 'hidden';
+    }
+  });
+ 
+  document.getElementById('backToTop').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+  // Animation au chargement
+  document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.querySelector('.logo');
+    logo.style.opacity = '0';
+    logo.style.transform = 'translateY(-20px)';
+    logo.style.transition = 'all 0.5s ease-out';
+   
+    setTimeout(() => {
+      logo.style.opacity = '1';
+      logo.style.transform = 'translateY(0)';
+    }, 100);
+  });
+</script>
+</body>
+</html>
